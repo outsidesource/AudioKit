@@ -95,6 +95,7 @@ extension AudioPlayer {
         if wasPlaying && !isPaused {
             play(from: time, to: duration)
         } else {
+            pausedTime = time
             editStartTime = time
             editEndTime = duration
         }
@@ -119,7 +120,7 @@ extension AudioPlayer {
         isPaused = false
         playerNode.stop()
         editStartTime = 0
-        pausedTime = getCurrentTime()
+        pausedTime = 0
         scheduleTime = nil
     }
 }
