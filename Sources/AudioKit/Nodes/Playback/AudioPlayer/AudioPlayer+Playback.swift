@@ -92,7 +92,7 @@ extension AudioPlayer {
 
         isSeeking = true
 
-        if wasPlaying {
+        if wasPlaying && !isPaused {
             play(from: time, to: duration)
         } else {
             editStartTime = time
@@ -114,10 +114,11 @@ extension AudioPlayer {
 
     /// Stop audio player. This won't generate a callback event
     public func stop() {
-        guard isPlaying else { return }
+        editStartTime = getCurrentTime()
         pausedTime = getCurrentTime()
         isPlaying = false
         isSeeking = false
+        isPaused = false
         playerNode.stop()
         scheduleTime = nil
     }
