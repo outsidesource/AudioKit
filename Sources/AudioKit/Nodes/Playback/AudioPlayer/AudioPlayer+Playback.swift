@@ -118,7 +118,7 @@ extension AudioPlayer {
         isSeeking = false
         isPaused = false
         playerNode.stop()
-        editStartTime = getCurrentTime()
+        editStartTime = 0
         pausedTime = getCurrentTime()
         scheduleTime = nil
     }
