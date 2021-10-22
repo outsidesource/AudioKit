@@ -114,12 +114,12 @@ extension AudioPlayer {
 
     /// Stop audio player. This won't generate a callback event
     public func stop() {
-        editStartTime = getCurrentTime()
-        pausedTime = getCurrentTime()
         isPlaying = false
         isSeeking = false
         isPaused = false
         playerNode.stop()
+        editStartTime = getCurrentTime()
+        pausedTime = getCurrentTime()
         scheduleTime = nil
     }
 }
