@@ -54,7 +54,7 @@ open class BaseTap {
     }
 
     /// Enable the tap on input
-    public func start() {
+    public func start(_ format: AVAudioFormat? = nil) {
         lock()
         defer {
             unlock()
@@ -76,7 +76,7 @@ open class BaseTap {
 
         input.avAudioNode.installTap(onBus: bus,
                                            bufferSize: bufferSize,
-                                           format: nil,
+                                           format: format,
                                            block: handleTapBlock(buffer:at:))
     }
 
